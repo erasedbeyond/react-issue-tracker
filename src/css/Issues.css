@@ -1,0 +1,52 @@
+.issues{
+    display: flex;
+    flex-direction: column;
+    
+}
+.issues-container{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    margin: 5px;
+}
+
+
+.issue-description{
+    display: none;
+    position: absolute;
+    background-color: rgb(179, 168, 153);
+}
+.issues-container:hover .issue-description{
+    display: block;
+}
+
+.issue-labels{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* progress */
+.new{
+    background-color:purple ;
+}
+.in-progress{
+    background-color: green;
+}
+.closed{
+    background-color: red;
+}
+.on-hold{
+    background-color: lightsalmon;
+}
+
+/* priority */
+.high{
+    background-color: red;
+}
+.medium{
+    background-color: yellow;
+}
+.low{
+    background-color: lightgreen;
+}
+
