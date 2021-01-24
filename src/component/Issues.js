@@ -18,7 +18,9 @@ class Issues extends React.Component{
             priority:[],
             progress:[],
             author:'',
+            search:'',
             tags:[],
+            sort:'',
 
             //to store
             allAuthor:[],
@@ -52,6 +54,11 @@ class Issues extends React.Component{
         e.preventDefault();
         this.setState({
             author:e.target.value
+        })
+    }
+    setSearch = (e) =>{
+        this.setState({
+            [e.target.name]:e.target.value
         })
     }
 
@@ -99,8 +106,20 @@ class Issues extends React.Component{
                 // &&  (this.state.tags.every((value)=>eachObj['tags'].indexOf(value)!==-1) ) //to have every tags
                 &&  (this.state.tags.length ===0 || this.state.tags.some((value)=>eachObj['tags'].indexOf(value)!==-1) ) //to have one of the tags
                 &&  (!this.state.author || eachObj.author === this.state.author)
+                &&  (!this.state.search || eachObj.title.toLowerCase().includes(this.state.search) || eachObj.description.toLowerCase().includes(this.state.search))
             }
         )
+
+            // finalData.sort((a,b)=> a.number-b.number);
+            console.log(this.state.sort);
+            if(this.state.sort==='ascending'){
+                finalData.sort((a,b)=> a.number-b.number);
+            }
+
+            if(this.state.sort==='descending'){
+                finalData.sort((a,b)=> b.number-a.number);
+            }
+
 
         
         return(
@@ -110,6 +129,7 @@ class Issues extends React.Component{
                 <RaiseIssue addIssue={this.addIssue} />
 
                 <div className='issue-block'>
+                    <input name='search' onChange={this.setSearch} placeholder='search'/>
                     {finalData.map((item,index)=>(<div className='issues-container'>
                         <div className='serial-number'>{item.number}</div>
                         <div className='issue-title'>{item.title}</div>
@@ -126,15 +146,25 @@ class Issues extends React.Component{
 
                 <div className='issue-filter'>
 
+                    <div className='issue-sorting'>
+                        <h3>Sort by issue Number</h3>
+                        <label> Ascending
+                            <input type='submit' value='ascending' name='sort'  onClick={this.setSearch}/><br/>
+                        </label>
+                        <label> Descending
+                            <input type='submit' value='descending' name='sort'  onClick={this.setSearch}/><br/>
+                        </label>
+                    </div>
+
                     <div className='filter-by-type'>
                         <h3>filter-by type</h3>
-                        <label for="bug"> Bug
+                        <label> Bug
                             <input type='checkbox' value='bug' name='type'  onChange={this.setFilter}/><br/>
                         </label>
-                        <label for="features"> Features
+                        <label> Features
                             <input type='checkbox' value='features' name='type'  onChange={this.setFilter}/><br/>
                         </label>
-                        <label for="error"> Error
+                        <label> Error
                             <input type='checkbox' value='error' name='type' onChange={this.setFilter} />
                         </label>
                     </div>

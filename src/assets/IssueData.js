@@ -13,19 +13,6 @@ export const IssueData = [
     author: 'abcd'
   },
   {
-    title: 'Not accurate results',
-    description: 'Rendering worng details',
-    number: 2,
-    createdAt: 1611389411297,
-    labels: {
-        type:'error',
-        progress:'in-progress',
-        priority:'medium'
-    },
-    tags:['issue','result'],
-    author: 'abcd'
-  },
-  {
     title: 'Maximum call stack size exceeded',
     description: 'Some description',
     number: 3,
@@ -49,6 +36,32 @@ export const IssueData = [
         priority:'low'
     },
     tags:['issue','report'],
+    author: 'abcd'
+  },
+  {
+    title: 'UncaughtException detected',
+    description: 'java.lang.RuntimeException: An error occurred while executing',
+    number: 7,
+    createdAt: 1611389411297,
+    labels: {
+        type:'error',
+        progress:'closed',
+        priority:'low'
+    },
+    tags:['issue','report'],
+    author: 'efgh'
+  },
+  {
+    title: 'Not accurate results',
+    description: 'Rendering worng details',
+    number: 2,
+    createdAt: 1611389411297,
+    labels: {
+        type:'error',
+        progress:'in-progress',
+        priority:'medium'
+    },
+    tags:['issue','result'],
     author: 'abcd'
   },
   {
@@ -78,17 +91,17 @@ export const IssueData = [
     author: 'efgh'
   },
   {
-    title: 'UncaughtException detected',
-    description: 'java.lang.RuntimeException: An error occurred while executing',
-    number: 7,
+    title: 'Sign in problem',
+    description: 'Confirm password mismatch error',
+    number: 11,
     createdAt: 1611389411297,
     labels: {
-        type:'error',
-        progress:'closed',
-        priority:'low'
+        type:'bug',
+        progress:'in-progress',
+        priority:'high'
     },
-    tags:['issue','report'],
-    author: 'efgh'
+    tags:['issue','report','login'],
+    author: 'ijkl'
   },
   {
     title: 'Regression',
@@ -129,19 +142,7 @@ export const IssueData = [
     tags:['issue','report','data'],
     author: 'ijkl'
   },
-  {
-    title: 'Sign in problem',
-    description: 'Confirm password mismatch error',
-    number: 11,
-    createdAt: 1611389411297,
-    labels: {
-        type:'bug',
-        progress:'in-progress',
-        priority:'high'
-    },
-    tags:['issue','report','login'],
-    author: 'ijkl'
-  },
+ 
   {
     title: 'Session timeout',
     description: 'User session is expired when refresed',
@@ -154,6 +155,19 @@ export const IssueData = [
     },
     tags:['issue','session'],
     author: 'ijkl'
+  },
+  {
+    title: 'Add google signin',
+    description: 'User should be able to sign in through google',
+    number: 15,
+    createdAt: 1611389411297,
+    labels: {
+        type:'features',
+        progress:'in-progress',
+        priority:'high'
+    },
+    tags:['authentication','report'],
+    author: 'mnop'
   },
   {
     title: 'Improve home page',
@@ -181,19 +195,7 @@ export const IssueData = [
     tags:['report','important'],
     author: 'mnop'
   },
-  {
-    title: 'Add google signin',
-    description: 'User should be able to sign in through google',
-    number: 15,
-    createdAt: 1611389411297,
-    labels: {
-        type:'features',
-        progress:'in-progress',
-        priority:'high'
-    },
-    tags:['authentication','report'],
-    author: 'mnop'
-  },
+  
   {
     title: 'Add facabook authentication',
     description: 'User should be able to sign in through facebook',
@@ -207,19 +209,7 @@ export const IssueData = [
     tags:['issue','authentication'],
     author: 'mnop'
   },
-  {
-    title: 'Github authentication',
-    description: 'User should be able to sign in through github',
-    number: 17,
-    createdAt: 1611389411297,
-    labels: {
-        type:'features',
-        progress:'closed',
-        priority:'medium'
-    },
-    tags:['issue','report','authentication'],
-    author: 'qrst'
-  },
+  
   {
     title: 'Edit profile page',
     description: 'User can edit his profile information',
@@ -244,6 +234,19 @@ export const IssueData = [
         priority:'high'
     },
     tags:['issue','report','important','styles'],
+    author: 'qrst'
+  },
+  {
+    title: 'Github authentication',
+    description: 'User should be able to sign in through github',
+    number: 17,
+    createdAt: 1611389411297,
+    labels: {
+        type:'features',
+        progress:'closed',
+        priority:'medium'
+    },
+    tags:['issue','report','authentication'],
     author: 'qrst'
   },
   {
