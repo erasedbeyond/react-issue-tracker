@@ -1,7 +1,11 @@
 .issues{
     display: flex;
-    flex-direction: column;
     
+}
+.issue-block{
+    display: flex;
+    flex-direction: column;
+
 }
 .issues-container{
     display: flex;

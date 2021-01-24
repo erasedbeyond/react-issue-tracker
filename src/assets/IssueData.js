@@ -9,6 +9,7 @@ export const IssueData = [
         progress:'in-progress',
         priority:'high'
     },
+    tags:['issue','report','login'],
     author: 'abcd'
   },
   {
@@ -21,6 +22,7 @@ export const IssueData = [
         progress:'in-progress',
         priority:'medium'
     },
+    tags:['issue','result'],
     author: 'abcd'
   },
   {
@@ -33,6 +35,7 @@ export const IssueData = [
         progress:'closed',
         priority:'high'
     },
+    tags:['issue','report'],
     author: 'abcd'
   },
   {
@@ -45,6 +48,7 @@ export const IssueData = [
         progress:'new',
         priority:'low'
     },
+    tags:['issue','report'],
     author: 'abcd'
   },
   {
@@ -57,7 +61,8 @@ export const IssueData = [
         progress:'new',
         priority:'low'
     },
-    author: 'abcd'
+    tags:['issue','report','unimportant'],
+    author: 'efgh'
   },
   {
     title: 'Feature Request',
@@ -69,7 +74,8 @@ export const IssueData = [
         progress:'in-progress',
         priority:'medium'
     },
-    author: 'abcd'
+    tags:['issue','request'],
+    author: 'efgh'
   },
   {
     title: 'UncaughtException detected',
@@ -81,7 +87,8 @@ export const IssueData = [
         progress:'closed',
         priority:'low'
     },
-    author: 'abcd'
+    tags:['issue','report'],
+    author: 'efgh'
   },
   {
     title: 'Regression',
@@ -93,7 +100,8 @@ export const IssueData = [
         progress:'new',
         priority:'high'
     },
-    author: 'abcd'
+    tags:['issue','report'],
+    author: 'efgh'
   },
   {
     title: 'Internal Error',
@@ -105,7 +113,8 @@ export const IssueData = [
         progress:'closed',
         priority:'low'
     },
-    author: 'abcd'
+    tags:['issue'],
+    author: 'ijkl'
   },
   {
     title: 'Data Fetching',
@@ -117,7 +126,8 @@ export const IssueData = [
         progress:'new',
         priority:'medium'
     },
-    author: 'abcd'
+    tags:['issue','report','data'],
+    author: 'ijkl'
   },
   {
     title: 'Sign in problem',
@@ -129,7 +139,8 @@ export const IssueData = [
         progress:'in-progress',
         priority:'high'
     },
-    author: 'abcd'
+    tags:['issue','report','login'],
+    author: 'ijkl'
   },
   {
     title: 'Session timeout',
@@ -141,7 +152,8 @@ export const IssueData = [
         progress:'new',
         priority:'low'
     },
-    author: 'abcd'
+    tags:['issue','session'],
+    author: 'ijkl'
   },
   {
     title: 'Improve home page',
@@ -153,7 +165,8 @@ export const IssueData = [
         progress:'new',
         priority:'low'
     },
-    author: 'abcd'
+    tags:['issue','report','styles'],
+    author: 'mnop'
   },
   {
     title: 'Add home button',
@@ -165,7 +178,8 @@ export const IssueData = [
         progress:'on-hold',
         priority:'medium'
     },
-    author: 'abcd'
+    tags:['report','important'],
+    author: 'mnop'
   },
   {
     title: 'Add google signin',
@@ -177,7 +191,8 @@ export const IssueData = [
         progress:'in-progress',
         priority:'high'
     },
-    author: 'abcd'
+    tags:['authentication','report'],
+    author: 'mnop'
   },
   {
     title: 'Add facabook authentication',
@@ -189,7 +204,8 @@ export const IssueData = [
         progress:'in-progress',
         priority:'medium'
     },
-    author: 'abcd'
+    tags:['issue','authentication'],
+    author: 'mnop'
   },
   {
     title: 'Github authentication',
@@ -201,7 +217,8 @@ export const IssueData = [
         progress:'closed',
         priority:'medium'
     },
-    author: 'abcd'
+    tags:['issue','report','authentication'],
+    author: 'qrst'
   },
   {
     title: 'Edit profile page',
@@ -213,7 +230,8 @@ export const IssueData = [
         progress:'in-progress',
         priority:'medium'
     },
-    author: 'abcd'
+    tags:['issue','report','styles'],
+    author: 'qrst'
   },
   {
     title: 'Compatibility issue',
@@ -225,7 +243,8 @@ export const IssueData = [
         progress:'on-hold',
         priority:'high'
     },
-    author: 'abcd'
+    tags:['issue','report','important','styles'],
+    author: 'qrst'
   },
   {
     title: 'Api rejection',
@@ -237,6 +256,7 @@ export const IssueData = [
         progress:'in-progress',
         priority:'low'
     },
-    author: 'abcd'
+    tags:['issue','report'],
+    author: 'qrst'
   },
 ]

@@ -38,6 +38,8 @@ class Projects extends React.Component{
             ProjectData:[...this.state.ProjectData,data]
         })
 
+        document.getElementById('add-project').reset()
+
 
     }
       
@@ -46,7 +48,7 @@ class Projects extends React.Component{
         return(
 
             <div>
-                <form onSubmit={this.handleSubmit} >
+                <form id='add-project' onSubmit={this.handleSubmit} >
                     <input type='text' name='name' placeholder='Name' onChange={this.setProjectDetail} required/>
                     <textarea name='description' placeholder='description' onChange={this.setProjectDetail} required/>
                     <input type='text' name='author' placeholder='Author' onChange={this.setProjectDetail} required/>
