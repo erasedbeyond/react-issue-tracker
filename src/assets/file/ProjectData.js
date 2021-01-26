@@ -1,7 +1,9 @@
-import music from '../assets/images/music.png';
-import college from '../assets/images/college.png';
-import ipod from '../assets/images/ipod.png';
-import superhero from '../assets/images/superhero.png'
+import music from '../images/music.png';
+import college from '../images/college.png';
+import ipod from '../images/ipod.png';
+import superhero from '../images/superhero.png'
+import issue from '../images/issue.png'
+
 
 
 export const ProjectData = [
@@ -34,12 +36,12 @@ export const ProjectData = [
      author:'erasedBeyond'   
     },
     {
-        name:'Web Ipod',
-        description:'React based Virtual ipod that has functionality similar to the actual iPod',
-        link:'https://erasedbeyond.github.io/ipod/',
-        img:ipod,
+        name:'React Issue Tracker',
+        description:'Frontend react based web app to track issue related to project and raise vairous issue',
+        link:'https://github.com/erasedbeyond/react-issue-tracker',
+        img:issue,
         author:'Natkhat'   
-       },
+    },
     
     
 ]

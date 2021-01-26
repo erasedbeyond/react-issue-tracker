@@ -1,10 +1,9 @@
 import React from 'react';
-import {IssueData} from '../assets/IssueData';
+import {IssueData} from '../assets/file/IssueData';
 import RaiseIssue from './RaiseIssue'
 import '../css/Issues.css'
 import IssueFilter from './IssueFilter'
-import exclamation from '../assets/exclamation.svg'
-import warning from '../assets/warning.svg'
+import exclamation from '../assets/icon/exclamation.svg'
 
 
 
@@ -154,37 +153,40 @@ class Issues extends React.Component{
                 /> :
 
                 <div className='issues-main'>
-                    <div>
-                        <h2>Issue</h2>    
-                        <button value='raise-issue' onClick={this.toggle}>Add Issues</button>
-                    </div> 
+
+                    <div className='issues-main-heading'>
+                            <h2>Issues Page</h2>   
+                            <input name='search' onChange={this.setSearch} placeholder='Search issue via tittle or description'/>
+
+                            <button className="button raise-issue-button" value='raise-issue' onClick={this.toggle}>Raise an Issues</button>
+                        </div> 
                     <div className='issues-main-container'>
+
+
                         <div className='issue-block'>
-                            <input name='search' onChange={this.setSearch} placeholder='search'/>
+                            
                             <div className='issue-block-container'>
-                                {finalData.map((item,index)=>(<div className='issues-container'>
+                                {finalData.map((item,index)=>(<div className='issues-container-main'>
                                     
-                                    <div className='issue-serial-number'>
-                                        <span>
+                                    <div className='issues-container'>
+                                        <div className='issue-serial-number'>
                                             <img className='issue-svg' src={exclamation}/>
-                                         </span>
-                                         <span>
-                                             {item.number}
-                                         </span>
+                                            <span>#{item.number}</span>
+                                        </div>
+                                        <div className='issue-title'>{item.title}</div>
                                         
+                                        <div className='issue-labels'>
+                                            <div className={item.labels.type+' label-tag-block'}>{item.labels.type}</div>
+                                            <div className={item.labels.progress+' label-tag-block'}>{item.labels.progress}</div>
+                                            <div className={item.labels.priority+' label-tag-block'}>{item.labels.priority}</div>
+                                        </div>
+                                        <div className='issue-author'>{item.author}</div>
 
                                     </div>
-                                    <div className='issue-title'>{item.title}</div>
                                     <div className='issue-description'>
                                         <div className='description-detail'>{item.description}</div>
                                         <div className='description-tag'>{item.tags.map((tag)=>(<span>#{tag} </span>))}</div>
                                     </div>
-                                    <div className='issue-labels'>
-                                        <div className={item.labels.type+' label-tag-block'}>{item.labels.type}</div>
-                                        <div className={item.labels.progress+' label-tag-block'}>{item.labels.progress}</div>
-                                        <div className={item.labels.priority+' label-tag-block'}>{item.labels.priority}</div>
-                                    </div>
-                                    <div className='issue-author'>{item.author}</div>
                                     
                                 </div>))}
                             </div>

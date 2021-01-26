@@ -1,5 +1,5 @@
 import React from 'react';
-import home from '../assets/home.svg'
+import home from '../assets/icon/home.svg'
 import '../css/Header.css'
 
 

@@ -1,11 +1,12 @@
 import React from 'react';
 import '../css/Projects.css';
-import link from '../assets/link.svg';
-import developer from '../assets/developer.svg';
-import img from '../assets/images/react.png'
-import project from '../assets/project.svg'
+import link from '../assets/icon/link.svg';
 
-import {ProjectData} from '../assets/ProjectData';
+import developer from '../assets/icon/developer.svg';
+import img from '../assets/images/react.png'
+import project from '../assets/icon/project.svg'
+
+import {ProjectData} from '../assets/file/ProjectData';
 
 
 class Projects extends React.Component{
@@ -65,8 +66,12 @@ class Projects extends React.Component{
                         <h3>Tittle:</h3>
                         <input type='text' name='name' placeholder='Name of the project' onChange={this.setProjectDetail} required/>
                     </label>
-                    <textarea name='description' placeholder='Write description about the project.' onChange={this.setProjectDetail} required/>
                     <label>
+                        <h3>Description:</h3>
+                        <textarea name='description' placeholder='Write description about the project.' onChange={this.setProjectDetail} required/>
+                   
+                    </label>
+                     <label>
                         <h3>Author:</h3>
                         <input type='text' name='author' placeholder='Author' onChange={this.setProjectDetail} required/>
                     </label>
@@ -77,7 +82,7 @@ class Projects extends React.Component{
                 </form>
                  <div className='projects-section'>
                     {this.state.ProjectData.map((item,index)=>(<div className='project-container'  key={index}>
-                        <div className='project-name'><img className='svg-medium' src={project} />{item.name}</div>
+                        <div className='project-name'><img className='svg-medium' src={project} /> ---{item.name}---</div>
                         <div className='project-description'>
                             <h4>Description: </h4>
                             <div><span>{item.description}</span></div>

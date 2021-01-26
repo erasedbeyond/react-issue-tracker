@@ -1,73 +1,185 @@
 .issues{
+    position: relative;
     display: flex;
     flex-direction: column;
+    /* min-width: 1300px; */
     
+    
+}
+.issues-main-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+}
+.issues-main-heading h2{
+    margin: 0 100px;
+    font-size: 2rem;
+    color: var(--head-color);
+}
+
+.issues-main-heading input{
+    /* width: 50%; */
+    flex-grow: 1;
+    text-indent: 10px;
+    margin-right: 10%;
+    height: 30px;
+}
+.raise-issue-button{
+    font-size: 1rem;
+}
+
+
+
+.issues-main{
+    height: 870px;
+    margin-top:10px ;
+    border-radius: 10px;
+    background-color: #ffffff;
+    background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+    
+  
 }
 
 .issues-main-container{
     display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    height: 800px;
+
+
+
 }
 .issue-block{
     display: flex;
     flex-direction: column;
-    width: 70%;
-}
+    width: 80%;
+    max-height: 840px;
+    height: inherit;
+    overflow: hidden;
+    min-width: 900px;
+
+    padding: 5px;
+    }
 .issue-block-container{
 
-    margin-top: 10px;
-    border-left:1px solid rgb(0, 0, 0);
-    border-right:1px solid rgb(0, 0, 0);
-    border-top:1px solid rgb(0, 0, 0);
+    
+    overflow-y: scroll;
+    margin: 10px 0 20px;
+    border:1px solid rgb(0, 0, 0);
+    background-color: white;
 
 
 }
+
+
+/* ------------filter style--------- */
 .issue-filter{
-    width: 30%;
+    width: 20%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.issue-filter>div{
+    border-bottom: 1px solid var(--head-color);
+    padding-bottom: 10px;
+
+    width: 200px;
+}
+.issue-filter div h3{
+    color:var(--head-color);
+}
+.issue-filter div label {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.filter-by-tags div{
+    height: 98px;
+    overflow-y: scroll;
+    /* padding-bottom: 10px;
+    margin-bottom: -10px; */
+}
+.filter-by-author select{
+    height: 25px;
+    width: 100%;
+}
+.issue-sorting label{
+    margin: 5px;
+    width: 100px;
+}
+.issue-sorting label:hover{
+    cursor: pointer;
+}
+.issue-sorting label input{
+    border: none;
+    background-color:rgba(255, 255, 255, 0) ;
+}
+.issue-filter label input:hover{
+    cursor: pointer;
+}
+/*-----------------------------------*/
 
 .issues-container{
     display: flex;
     position: relative;
     justify-content: space-between;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.219);
     padding: 10px;
+    /* color: white; */
+    background: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+  }
+.issues-container:hover  {
+    /* background: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%); */
+    /* background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%); */
+    background: linear-gradient(to top, #7c98b3  0%, #637081 74%);
+
+    color: white;
 }
-.issues-container:hover {
-    background-color: lightgrey;
-}
+
+
 
 /* item description is available on hover */
 .issue-description{
     display: none;
-    position: absolute;
-    /* top:100px; */
-    width: 300px;
-    height: 100px;
-    z-index: 1;
-    border-radius: 10px;
-    background: rgb(0,190,255);
-    background: linear-gradient(0deg, rgba(0,190,255,1) 12%, rgba(145,227,255,1) 60%);
+   
 }
-.issues-container:hover .issue-description{
+.issues-container-main:hover .issue-description{
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
+    padding: 15px;
+    margin: 5px;
+    box-shadow: inset 0 0 4px 0;
+    background-color: #ffffff;
+    background-image: linear-gradient(-315deg, #ffffff 0%, #d7e1ec 74%);
+   
 }
 .issue-description .description-detail{
+    font-size: 1.1rem;
     margin: 5px 0 0 5px ;
 }
 .issue-description .description-tag{
-    color: white;
-    margin: 0 0 5px 5px;
+    color: var(--head-color);
 }
 
 
 .issue-serial-number{
     display: flex;
     justify-content: start;
+    align-items: center;
     width: 40px;
    
+}
+.issue-serial-number span{
+    position: absolute;
+    font-size: 0.95rem;
+    left: 40px;
+    /* background-color: blueviolet; */
+    transform: rotate(-25deg);
 }
 
 .issue-svg{
@@ -106,18 +218,18 @@
     border-radius:5px ;
     font-weight: 600;
     font-size: .9rem;
+    color: white;
 }
 
 /* type */
 .bug{
-    background-color: brown;
-    color: white;
+    background-color: rgb(121, 121, 121);
 }
 .error{
-    background-color: crimson;
+    background-color: brown;
 }
 .features{
-    background-color: darkolivegreen;
+    background-color: rgb(52, 115, 139);
 }
 /* progress */
 .new{
@@ -135,12 +247,35 @@
 
 /* priority */
 .high{
-    background-color: red;
+    background-color: rgb(214, 83, 83);
 }
 .medium{
-    background-color: yellow;
+    background-color: rgb(211, 158, 23);
 }
 .low{
-    background-color: lightgreen;
+    background-color: rgb(105, 173, 105);
 }
 
+/* scrollbar setting */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--head-color); 
+
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+  }

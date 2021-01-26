@@ -1,4 +1,7 @@
 import React from 'react';
+import ascending from '../assets/icon/ascending.svg'
+import descending from '../assets/icon/descending.svg'
+
 
 
 class Projects extends React.Component{
@@ -9,18 +12,22 @@ class Projects extends React.Component{
             <div className='issue-filter'>
 
             <div className='issue-sorting'>
-                <h3>Sort by issue Number</h3>
-                <label> Ascending
+                <h3>Sort by Issue Number</h3>
+                <label> 
                     <input type='submit' value='ascending' name='sort'  onClick={this.props.setSearch}/><br/>
+                    <img className='svg' src={ascending} />
+
                 </label>
-                <label> Descending
+                <label> 
                     <input type='submit' value='descending' name='sort'  onClick={this.props.setSearch}/><br/>
+              
+                    <img className='svg' src={descending}/>
                 </label>
             </div>
 
             <div className='filter-by-type'>
-                <h3>filter-by type</h3>
-                <label> Bug
+                <h3>Filter by Type</h3>
+                <label> Bug 
                     <input type='checkbox' value='bug' name='type'  onChange={this.props.setFilter}/><br/>
                 </label>
                 <label> Features
@@ -72,9 +79,11 @@ class Projects extends React.Component{
 
             <div className='filter-by-tags'>
                 <h3>Filter by Tags</h3>
-                {this.props.allTags.map((tag,index)=>(<label>{tag}
-                    <input type='checkbox' name='tags' value={tag} onChange={this.props.setFilter}/>
-                </label>))}           
+                <div>
+                    {this.props.allTags.map((tag,index)=>(<label>{tag}
+                        <input type='checkbox' name='tags' value={tag} onChange={this.props.setFilter}/>
+                    </label>))}   
+                </div>        
             </div>
 
         </div>
