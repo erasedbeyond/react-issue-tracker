@@ -4,6 +4,8 @@ import RaiseIssue from './RaiseIssue'
 import '../css/Issues.css'
 import IssueFilter from './IssueFilter'
 import exclamation from '../assets/icon/exclamation.svg'
+import filter from '../assets/icon/filter.svg'
+
 
 
 
@@ -16,6 +18,8 @@ class Issues extends React.Component{
 
             issueData:IssueData,
 
+
+            visibility:false,
             //to filter
             type:[],
             priority:[],
@@ -44,6 +48,23 @@ class Issues extends React.Component{
             this.setState({
                 [e.target.name]:this.state[e.target.name].filter((item)=> item!==e.target.value)
             })
+        }
+    }
+    setFilterVisibility = ()=>{
+        if(this.state.visibility){
+            this.setState({visibility:false})
+            document.getElementsByClassName('issue-filter')[0].style.visibility = 'hidden'
+            document.getElementsByClassName('menu-option')[0].style.width = '40px'
+            document.getElementsByClassName('menu-option')[0].style.height = '40px'
+
+        }else{
+            this.setState({visibility:true})
+            document.getElementsByClassName('issue-filter')[0].style.visibility = 'visible'
+            document.getElementsByClassName('menu-option')[0].style.width = '100%'
+            document.getElementsByClassName('menu-option')[0].style.height = '100%'
+
+
+
         }
     }
 
@@ -155,6 +176,8 @@ class Issues extends React.Component{
                 <div className='issues-main'>
 
                     <div className='issues-main-heading'>
+
+                            <div className='menu-option' onClick={this.setFilterVisibility}><img className='svg-large' src={filter} onClick={this.setFilterVisibility}/></div>
                             <h2>Issues Page</h2>   
                             <input name='search' onChange={this.setSearch} placeholder='Search issue via tittle or description'/>
 

@@ -14,7 +14,7 @@ export const IssueData = [
   },
   {
     title: 'Maximum call stack size exceeded',
-    description: 'Some description',
+    description: 'calling a function which in turn calls another function and so forth, until you hit the call stack limit',
     number: 3,
     createdAt: 1611389411297,
     labels: {
@@ -26,8 +26,8 @@ export const IssueData = [
     author: 'abcd'
   },
   {
-    title: 'no way to reset a react.lazy cache Status',
-    description: 'Some description',
+    title: 'Cache Status',
+    description: 'No way to reset a react.lazy cache Status',
     number: 4,
     createdAt: 1611389411297,
     labels: {

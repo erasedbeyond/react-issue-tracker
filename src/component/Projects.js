@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/Projects.css';
+import addDocument from '../assets/icon/add-documents.svg'
 import link from '../assets/icon/link.svg';
 
 import developer from '../assets/icon/developer.svg';
@@ -17,7 +18,9 @@ class Projects extends React.Component{
             ProjectData:ProjectData,
             name:'',
             description:'',
-            author:''
+            author:'',
+
+            visibility:false,
         }
     }
 
@@ -26,6 +29,20 @@ class Projects extends React.Component{
     //     const { target: { name, value } } = event
     //     this.setState({ [name]: value })
     // }
+
+    setAddProjectVisibility = ()=>{
+        if(this.state.visibility){
+            this.setState({visibility:false})
+            document.getElementById('add-project').style.display = 'none'
+
+        }else{
+            this.setState({visibility:true})
+            document.getElementById('add-project').style.display = 'flex'
+
+
+
+        }
+    }
 
     setProjectDetail= (e) =>{
         this.setState({
@@ -57,6 +74,9 @@ class Projects extends React.Component{
         return(
 
             <div className='projects'>
+
+                <div className='menu-option add-project-menu' onClick={this.setAddProjectVisibility}><img className='svg-large' src={addDocument} onClick={this.setFilterVisibility}/></div>
+
                 <form id='add-project' onSubmit={this.handleSubmit} >
 
                     <div className='paper-handle'></div>
@@ -82,7 +102,7 @@ class Projects extends React.Component{
                 </form>
                  <div className='projects-section'>
                     {this.state.ProjectData.map((item,index)=>(<div className='project-container'  key={index}>
-                        <div className='project-name'><img className='svg-medium' src={project} /> ---{item.name}---</div>
+                        <div className='project-name'><img className='svg-medium' src={project} /> {item.name}</div>
                         <div className='project-description'>
                             <h4>Description: </h4>
                             <div><span>{item.description}</span></div>

@@ -1,3 +1,4 @@
+
 .projects{
     display: flex;
     /* align-items: center; */
@@ -8,7 +9,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* width: 400px; */
+    /* width: 20%; */
     min-width: 400px;
     height: 550px;
     margin: 80px 20px 0 40px;
@@ -19,6 +20,52 @@
     
     
 }
+.add-project-menu{
+    visibility: hidden;    
+}
+
+@media only screen and (min-width:900px){
+    #add-project{
+        display: flex!important;
+    }
+}
+@media only screen and (max-width:900px){
+
+    .projects{
+        zoom: .8;
+        display: flex;
+        flex-direction: column;
+        justify-content: center!important;
+        align-items: center;
+    }
+    #add-project{
+        zoom: 1.2;
+        display: none;
+        margin-bottom: 50px;
+        
+    }
+    .add-project-menu{
+        visibility: visible; 
+        top:150px!important;
+        left: 50px;
+        padding: 5px 0 0 5px;
+        border: 1px solid var(--head-color);
+        border-radius: 0px 10px 10px !important;
+        box-shadow: 0 0 5px 0 var(--head-color);
+    }
+    .add-project-menu:hover{
+        /* box-shadow: none; */
+        zoom: 1.01;
+        overflow: hidden;
+
+    }
+    .projects-section{
+        border-top: 5px solid var(--head-color);
+    }
+   
+    
+}
+
 #add-project h2{
     color: var(--head-color)
 }
@@ -81,18 +128,24 @@
 .projects-section{
 
     display: flex;
+    justify-content: center;
+
     flex-wrap: wrap;
-    /* border: 1px solid black; */
-    /* justify-content: space-evenly; */
-    
+    overflow-y: scroll;   
+    max-height: 870px; 
+    /* width: 70%; */
+    /* border: 1px solid green; */
 }
 
 .project-container{
 
     position: relative;
     margin: 100px 50px 0 50px;
-    width: 350px;
+    max-width: 350px; 
+    width: 25%;
+    min-width: 310px;
     height: 300px;
+    /* height: 36%; */
     border-radius: 10px;
     background-color: #ffffff;
     background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
@@ -190,7 +243,7 @@
 .project-image img{
     width: 80%;
     height: 80%;
-    border-radius: 10%;
+    border-radius: 10px;
     object-fit: contain;
 }
 .project-image:hover img{ 
@@ -219,7 +272,7 @@
 }
 .project-link:hover .svg{
     transform: rotate(225deg);
-    transition: 2s ease-in;
+    transition: 1s ease-in;
 }
 .svg{
     width: 20px;

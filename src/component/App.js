@@ -2,7 +2,7 @@ import Header from './Header'
 import Projects from './Projects'
 import Issues from './Issues'
 import '../css/App.css'
-import React,{ useState } from 'react'
+import React from 'react'
 
 class App extends React.Component {
   constructor(){

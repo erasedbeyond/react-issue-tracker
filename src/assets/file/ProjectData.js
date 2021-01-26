@@ -8,14 +8,14 @@ import issue from '../images/issue.png'
 
 export const ProjectData = [
     {
-     name:'Musci Player Web Design',
+     name:'Music Player Web Design',
      description:' A simple architecture for Responsive music player website using HTML and CSS',
      link:'https://erasedbeyond.github.io/MusicPlayerApp/',
      img:music,
      author:'erasedBeyond'   
     },
     {
-     name:'Web Ipod',
+     name:'Web IPod',
      description:'React based Virtual ipod that has functionality similar to the actual iPod',
      link:'https://erasedbeyond.github.io/ipod/',
      img:ipod,
