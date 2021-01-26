@@ -1,34 +1,124 @@
 .issues{
     display: flex;
+    flex-direction: column;
     
+}
+
+.issues-main-container{
+    display: flex;
 }
 .issue-block{
     display: flex;
     flex-direction: column;
+    width: 70%;
+}
+.issue-block-container{
+
+    margin-top: 10px;
+    border-left:1px solid rgb(0, 0, 0);
+    border-right:1px solid rgb(0, 0, 0);
+    border-top:1px solid rgb(0, 0, 0);
+
 
 }
+.issue-filter{
+    width: 30%;
+}
+
+
 .issues-container{
     display: flex;
+    position: relative;
     justify-content: space-between;
-    border: 1px solid black;
-    margin: 5px;
+    border-bottom: 1px solid black;
+    padding: 10px;
+}
+.issues-container:hover {
+    background-color: lightgrey;
 }
 
-
+/* item description is available on hover */
 .issue-description{
     display: none;
     position: absolute;
-    background-color: rgb(179, 168, 153);
+    /* top:100px; */
+    width: 300px;
+    height: 100px;
+    z-index: 1;
+    border-radius: 10px;
+    background: rgb(0,190,255);
+    background: linear-gradient(0deg, rgba(0,190,255,1) 12%, rgba(145,227,255,1) 60%);
 }
 .issues-container:hover .issue-description{
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.issue-description .description-detail{
+    margin: 5px 0 0 5px ;
+}
+.issue-description .description-tag{
+    color: white;
+    margin: 0 0 5px 5px;
 }
 
+
+.issue-serial-number{
+    display: flex;
+    justify-content: start;
+    width: 40px;
+   
+}
+
+.issue-svg{
+    height: 20px;
+    margin-right: 5px;
+    /* position: absolute; */
+}
+.issue-title{
+    text-align: justify;
+    width: 40%;
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: sans-serif;
+    
+}
 .issue-labels{
     display: flex;
     justify-content: space-between;
+    width: 30%;
+
+
+
+}
+.issue-author{
+    width: 10%;
+    text-align: end;
+
+
+
+}
+.label-tag-block{
+    width: 100px;
+    text-align: center;
+    margin:0 5px;
+    padding: 5px 0;
+    border-radius:5px ;
+    font-weight: 600;
+    font-size: .9rem;
 }
 
+/* type */
+.bug{
+    background-color: brown;
+    color: white;
+}
+.error{
+    background-color: crimson;
+}
+.features{
+    background-color: darkolivegreen;
+}
 /* progress */
 .new{
     background-color:purple ;

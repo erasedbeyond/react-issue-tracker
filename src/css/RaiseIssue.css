@@ -1,4 +1,181 @@
+.raise-issue{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    min-width: 500px;
+    max-width: 700px;
+    padding:0 30px 100px 30px;
+    margin:15px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.658);
+
+    background-color: #ffffff;
+    background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+
+}
+.paper-handle{
+    margin-top: 3%;
+    height: 20px;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0.637);
+    background-color: white;
+}
+.raise-issue-heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.raise-issue-heading h2{
+    font-size: 2rem;
+    margin-bottom: -10px;
+    color:var(--head-color) ;
+
+}
 .raise-issue form{
     display: flex;
     flex-direction: column;
+    width: 100%;
+}
+.raise-issue label input{
+    width: 100%;
+    height: 40px;
+    font-size: 1.2rem;
+    padding-left: 10px;
+}
+.raise-issue label textarea{
+    width: 100%;
+    height: 80px;
+    font-size: 1.2rem;
+    padding-top: 10px;
+    padding-left: 10px;
+
+}
+#label-selects{
+   display: flex;
+   justify-content: space-between;
+   
+   margin: 0 -20px 0 -10px;
+}
+#label-selects select{
+    height: 40px;
+    flex-grow: 1;
+    font-size: 1rem;
+    font-weight:600;
+    padding-left: 5px;
+    margin: 0 10px;
+    color:var(--head-color) ;
+
+
+}
+
+#add-tag-form div{
+    display: flex;
+    align-items: center;
+}
+#tag-input{
+    display: flex;
+    margin: 0 -10px 10px -10px;
+}
+#tag-input input{
+    margin: 10px;
+}
+
+/* general button style */
+.button {
+    background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%)
+}
+.button {
+   margin: 10px;
+   padding: 15px 45px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+   box-shadow: 0 0 20px #eee;
+   border-radius: 10px;
+   display: block;
+ }
+ .button:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+   cursor: pointer;
+ }
+ .button:focus{
+     outline: none;
+ }
+
+.tag-button{
+    width: 150px!important;
+    height: 50px!important;
+    padding: 10px;
+    font-size: 1.1rem!important;
+}
+
+.back-to-issue-button{
+    font-size: 0.7rem;
+    padding: 10px 20px 20px 20px;
+    height: 10px;
+}
+.add-issue-button{
+    position: absolute;
+    font-size: 1.2rem;
+    bottom: 10px;
+    right: 1%;
+    width: 95%;
+}
+
+
+
+.added-tag{
+    position: relative;
+    color: white;
+    background-color: rgb(30, 96, 139);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    z-index: 2;
+}
+.hidden{
+    position: absolute;
+    top:-20px;
+    left: -15px;
+    text-align: center;
+    font-size: .8rem;
+    font-weight: 500;
+
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    padding: 2px 4px;
+    visibility: hidden;
+}
+.delete{
+    position: relative;
+    border-radius: 5px;
+    padding-right: 3px;
+    padding-bottom: 2px;
+    font-weight: bold;
+    margin-left: 5px;
+    background-color: white;
+    color:var(--head-color) ;
+
+    border: none;
+}
+.delete:hover{
+    cursor: pointer;
+}
+.delete:hover .hidden{
+    visibility:visible;
+    
+}
+.delete:hover{
+    
+    background-color:rgb(30, 96, 139);
+    color: white;  
+    border: 2px solid white;
+
 }

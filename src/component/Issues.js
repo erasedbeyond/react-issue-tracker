@@ -2,6 +2,10 @@ import React from 'react';
 import {IssueData} from '../assets/IssueData';
 import RaiseIssue from './RaiseIssue'
 import '../css/Issues.css'
+import IssueFilter from './IssueFilter'
+import exclamation from '../assets/exclamation.svg'
+import warning from '../assets/warning.svg'
+
 
 
 class Issues extends React.Component{
@@ -21,6 +25,9 @@ class Issues extends React.Component{
             search:'',
             tags:[],
             sort:'',
+
+            //switch between tabs
+            issueTab:false,
 
             //to store
             allAuthor:[],
@@ -42,6 +49,7 @@ class Issues extends React.Component{
     }
 
     addIssue = (e) =>{
+
         e.number = this.state.issueData.length+1;
         e.createdAt = Date.now();
         console.log(e);
@@ -77,6 +85,17 @@ class Issues extends React.Component{
             allTags:[...allTagsSet]
         })
 
+    }
+
+    toggle = (e)=>{
+        if(e.target.value==='issue-page')
+            this.setState({
+                issueTab:false
+            })
+        if(e.target.value==='raise-issue')
+            this.setState({
+                issueTab:true
+            })
     }
 
     componentDidMount(){
@@ -126,96 +145,64 @@ class Issues extends React.Component{
 
             <div className='issues'>
 
-                <RaiseIssue addIssue={this.addIssue} />
+            {
+                this.state.issueTab ? 
 
-                <div className='issue-block'>
-                    <input name='search' onChange={this.setSearch} placeholder='search'/>
-                    {finalData.map((item,index)=>(<div className='issues-container'>
-                        <div className='serial-number'>{item.number}</div>
-                        <div className='issue-title'>{item.title}</div>
-                        <div className='issue-description'>{item.description}</div>
-                        <div className='issue-labels'>
-                            <div >{item.labels.type}</div>
-                            <div className={item.labels.progress}>{item.labels.progress}</div>
-                            <div className={item.labels.priority}>{item.labels.priority}</div>
+                <RaiseIssue 
+                    addIssue={this.addIssue}
+                    toggle={this.toggle}
+                /> :
+
+                <div className='issues-main'>
+                    <div>
+                        <h2>Issue</h2>    
+                        <button value='raise-issue' onClick={this.toggle}>Add Issues</button>
+                    </div> 
+                    <div className='issues-main-container'>
+                        <div className='issue-block'>
+                            <input name='search' onChange={this.setSearch} placeholder='search'/>
+                            <div className='issue-block-container'>
+                                {finalData.map((item,index)=>(<div className='issues-container'>
+                                    
+                                    <div className='issue-serial-number'>
+                                        <span>
+                                            <img className='issue-svg' src={exclamation}/>
+                                         </span>
+                                         <span>
+                                             {item.number}
+                                         </span>
+                                        
+
+                                    </div>
+                                    <div className='issue-title'>{item.title}</div>
+                                    <div className='issue-description'>
+                                        <div className='description-detail'>{item.description}</div>
+                                        <div className='description-tag'>{item.tags.map((tag)=>(<span>#{tag} </span>))}</div>
+                                    </div>
+                                    <div className='issue-labels'>
+                                        <div className={item.labels.type+' label-tag-block'}>{item.labels.type}</div>
+                                        <div className={item.labels.progress+' label-tag-block'}>{item.labels.progress}</div>
+                                        <div className={item.labels.priority+' label-tag-block'}>{item.labels.priority}</div>
+                                    </div>
+                                    <div className='issue-author'>{item.author}</div>
+                                    
+                                </div>))}
+                            </div>
                         </div>
-                        <div className='issue-author'>{item.author}</div>
-                        
-                    </div>))}
+                    
+
+                        <IssueFilter 
+                            allAuthor={this.state.allAuthor} 
+                            allTags={this.state.allTags} 
+                            setFilter={this.setFilter}
+                            setAuthor={this.setAuthor}
+                            setSearch={this.setSearch}
+                            
+                        />
+                    </div>
                 </div>
-
-                <div className='issue-filter'>
-
-                    <div className='issue-sorting'>
-                        <h3>Sort by issue Number</h3>
-                        <label> Ascending
-                            <input type='submit' value='ascending' name='sort'  onClick={this.setSearch}/><br/>
-                        </label>
-                        <label> Descending
-                            <input type='submit' value='descending' name='sort'  onClick={this.setSearch}/><br/>
-                        </label>
-                    </div>
-
-                    <div className='filter-by-type'>
-                        <h3>filter-by type</h3>
-                        <label> Bug
-                            <input type='checkbox' value='bug' name='type'  onChange={this.setFilter}/><br/>
-                        </label>
-                        <label> Features
-                            <input type='checkbox' value='features' name='type'  onChange={this.setFilter}/><br/>
-                        </label>
-                        <label> Error
-                            <input type='checkbox' value='error' name='type' onChange={this.setFilter} />
-                        </label>
-                    </div>
-
-                    <div className='filter-by-progress'>
-                        <h3>Filter by Progress</h3>
-                        <label> New
-                            <input type='checkbox' value='new' name='progress' onChange={this.setFilter} /><br/>
-                        </label>
-                        <label> In progress
-                            <input type='checkbox' value='in-progress' name='progress'  onChange={this.setFilter}/><br/>
-                        </label>
-                        <label> On hold
-                            <input type='checkbox' value='on-hold' name='progress' onChange={this.setFilter} /><br/>
-                        </label>
-                        <label> Closed
-                            <input type='checkbox' value='closed' name='progress' onChange={this.setFilter} />
-                        </label>
-                    </div>
-
-                    <div className='filter-by-priority'>
-                        <h3>Filter by priority</h3>
-                        <label> High
-                            <input type='checkbox' value='high' name='priority'  onChange={this.setFilter}/><br/>
-                        </label>
-                        <label> Medium
-                            <input type='checkbox' value='medium' name='priority'  onChange={this.setFilter}/><br/>
-                        </label>
-                        <label> Low
-                            <input type='checkbox' value='low' name='priority' onChange={this.setFilter} />
-                        </label>
-                    </div>
-
-                    <div className='filter-by-author'>
-                        <h3>Filter by Author</h3>
-                        <select onChange={this.setAuthor}>
-                            <option value='' selected>Choose author</option>
-                            {this.state.allAuthor.map((author,index)=>(<option value={author}>
-                                {author}
-                            </option>))}
-                        </select>
-                    </div>
-
-                    <div className='filter-by-tags'>
-                        <h3>Filter by Tags</h3>
-                        {this.state.allTags.map((tag,index)=>(<label>{tag}
-                            <input type='checkbox' name='tags' value={tag} onChange={this.setFilter}/>
-                        </label>))}           
-                    </div>
-
-                </div>
+                
+            }
             </div>
         );
     }

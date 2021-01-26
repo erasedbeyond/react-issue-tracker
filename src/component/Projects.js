@@ -1,4 +1,9 @@
 import React from 'react';
+import '../css/Projects.css';
+import link from '../assets/link.svg';
+import developer from '../assets/developer.svg';
+import img from '../assets/images/react.png'
+import project from '../assets/project.svg'
 
 import {ProjectData} from '../assets/ProjectData';
 
@@ -32,7 +37,10 @@ class Projects extends React.Component{
         const data = {
             name:this.state.name,
             description:this.state.description,
+            link:'https://reactjs.org/docs/getting-started.html',
+            img:img,
             author:this.state.author
+
         }
         this.setState({
             ProjectData:[...this.state.ProjectData,data]
@@ -47,21 +55,47 @@ class Projects extends React.Component{
     render(){
         return(
 
-            <div>
+            <div className='projects'>
                 <form id='add-project' onSubmit={this.handleSubmit} >
-                    <input type='text' name='name' placeholder='Name' onChange={this.setProjectDetail} required/>
-                    <textarea name='description' placeholder='description' onChange={this.setProjectDetail} required/>
-                    <input type='text' name='author' placeholder='Author' onChange={this.setProjectDetail} required/>
-                    <input type='submit' value='Add Project' />
+
+                    <div className='paper-handle'></div>
+
+                    <h2>Add More Project</h2>
+                    <label>
+                        <h3>Tittle:</h3>
+                        <input type='text' name='name' placeholder='Name of the project' onChange={this.setProjectDetail} required/>
+                    </label>
+                    <textarea name='description' placeholder='Write description about the project.' onChange={this.setProjectDetail} required/>
+                    <label>
+                        <h3>Author:</h3>
+                        <input type='text' name='author' placeholder='Author' onChange={this.setProjectDetail} required/>
+                    </label>
+                    <input className='button add-project-btn' type='submit' value='Add Project' />
 
 
 
                 </form>
-                 <div className='projects'>
-                    {this.state.ProjectData.map((item,index)=>(<div key={index}>
-                        {item.name} 
-                        {item.description} 
-                        {item.author}
+                 <div className='projects-section'>
+                    {this.state.ProjectData.map((item,index)=>(<div className='project-container'  key={index}>
+                        <div className='project-name'><img className='svg-medium' src={project} />{item.name}</div>
+                        <div className='project-description'>
+                            <h4>Description: </h4>
+                            <div><span>{item.description}</span></div>
+                        </div>
+                        <div className='project-image' setTab='issue' onClick={this.props.setTab}>
+                            <img setTab='issue' onClick={this.props.setTab} src={item.img}/>
+                        </div>
+                        <div className='project-link'>
+                            <a target='_blank' href={item.link}>{item.link.slice(8)}</a>
+                            <img className='svg' src={link} />
+                        </div>
+                        <div className='project-author'>
+                            <img className='svg' src={developer}/>
+                            <span>{item.author}</span>
+                        </div>
+                        
+                        
+                        
                     </div>))}
                 </div>
 
